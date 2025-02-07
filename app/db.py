@@ -1,11 +1,14 @@
 import sqlite3
 from sqlite3 import Error
+from app.utils import validate_sql
 
 class Database:
     def __init__(self, db_path='data/database.sqlite'):
         self.db_path = db_path
 
     def execute_query(self, query):
+        if not validate_sql(query):
+            return {"error": "Invalid SQL query. Only SELECT queries are allowed at this point."}
         try:
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
