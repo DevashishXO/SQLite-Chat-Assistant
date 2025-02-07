@@ -2,11 +2,11 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY . .
-
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc python3-dev && \
+    apt-get install -y --no-install-recommends gcc python3-dev sqlite3 && \
     rm- rf /var/lib/apt/lists/*
+
+COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
