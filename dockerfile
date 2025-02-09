@@ -10,6 +10,11 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 7860
+# EXPOSE 8000  
+#(for flask)
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app.main:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:7860", "app.main:app"]
+
+# (for flask)
+# CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app.main:app"]
