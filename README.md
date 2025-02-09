@@ -44,21 +44,25 @@ ONNX quantization was applied to reduce the model size and improve deployment ef
 ```sh
 git clone https://github.com/DevashishXO/SQLite-Chat-Assistant.git
 cd SQLite-Chat-Assistant
+```
 
 ### 2. Install Dependencies
 
 ```sh
 pip install -r requirements.txt
+```
 
 ### 3. Set up the SQLite Database
 
 ```sh
 python data/initialize_db.py
+```
+
 
 ### 4. Run the Flask App
 
 ```sh
 $env:FLASK_APP="app.main:app"
 flask run
-
+```
 
