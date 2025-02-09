@@ -17,6 +17,12 @@ pinned: false
 https://huggingface.co/spaces/DevashishNagpal/nlp-to-sql-chat-assistant
 
 ```
+**Note:** If the model fails to understand the user query, it generates a fallback query:
+
+```sql
+SELECT * FROM employees;
+```
+
 Please note that this project is still under development, and the model may not work as expected for all queries. Feel free to test it out and provide feedback for improvements. 
 
 Example queries:
