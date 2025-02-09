@@ -11,6 +11,20 @@ pinned: false
 
 # SQL Chat Assistant
 
+## Public Testing
+
+```sh
+https://huggingface.co/spaces/DevashishNagpal/nlp-to-sql-chat-assistant
+
+```
+Please note that this project is still under development, and the model may not work as expected for all queries. Feel free to test it out and provide feedback for improvements. 
+
+Example queries:
+- "Show me all the employees"
+- "Show me the employees who are managers"
+- "Who is the manager of Marketing department?"
+
+
 ## Overview
 
 This project is a Flask-based chat assistant that converts natural language queries into SQL statements using state-of-the-art NLP models. The system leverages Hugging Face transformer models, sentence embedding techniques, and fine-tuning approaches to generate accurate SQL queries for an SQLite database.
@@ -66,3 +80,34 @@ $env:FLASK_APP="app.main:app"
 flask run
 ```
 
+## Models Explored for the Project
+
+I experimented with multiple models before settling on the fine-tuned t5-small model with ONNX quantization.
+
+## Models Explored and Rejected
+
+| Model                                      | Reason for Rejection                                                                 |
+|--------------------------------------------|--------------------------------------------------------------------------------------|
+| mrm8488/t5-base-finetuned-wikiSQL          | Produced incorrect table references due to its focus on WikiSQL datasets.            |
+| tscholak/cxmefzzi                          | Large model size, requiring high computational resources for inference.              |
+| HridaAI/Hrida-T2SQL-3B-V0.2                | Optimized for Spider dataset, failing on custom schemas.                             |
+| cssupport/t5-small-awesome-text-to-sql     | Limited accuracy without schema-specific fine-tuning.                                |
+| hasibzunair/t5-small-spider-sql            | Required significant schema customization.                                           |
+| hkunlp/text2sql-t5-small                   | Generated incomplete queries.                                                        |
+| szarnyasg/transformer-text2sql             | Poor generalization on varied SQL queries.                                           |
+| jimypbr/gpt2-finetuned-wikitext2           | GPT-2 was not suited for structured SQL generation.                                  |
+
+## Future Improvements
+
+- Enhance dataset for fine-tuning.
+- Implement caching for faster response times.
+- Deploy the model using Hugging Face Spaces or an optimized cloud server.
+
+## Author
+Devashish Nagpal
+
+### GitHub: github.com/DevashishXO
+### LinkedIn: linkedin.com/in/devashishnagpal
+
+## License
+This project is open-source under the MIT License.

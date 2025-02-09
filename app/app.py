@@ -20,12 +20,19 @@ def chatbot(user_query):
             return "⚠️ No data found."
 
         # Formatting SQL output
-        response = "**Query:**\n" + sql + "\n\n"
+        response = f"**Query:**\n```\n{sql}\n```\n\n"
         response += "**Result:**\n"
-        response += " | ".join(result['columns']) + "\n"
-        response += "-"*50 + "\n"
+        response += "<table style='width:100%; border-collapse: collapse;'>"
+        response += "<tr style='background-color: #f2f2f2;'>"
+        for col in result['columns']:
+            response += f"<th style='border: 1px solid #ddd; padding: 8px;'>{col}</th>"
+        response += "</tr>"
         for row in result['data']:
-            response += " | ".join(str(cell) for cell in row) + "\n"
+            response += "<tr>"
+            for cell in row:
+                response += f"<td style='border: 1px solid #ddd; padding: 8px;'>{cell}</td>"
+            response += "</tr>"
+        response += "</table>"
         return response
 
     except Exception as e:
@@ -41,7 +48,7 @@ demo = gr.Interface(
 )
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860, share = True)
+    demo.launch(server_name="0.0.0.0", server_port=7860, share=True)
 
 
 
