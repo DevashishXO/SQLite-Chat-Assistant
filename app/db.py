@@ -1,6 +1,6 @@
 import sqlite3
 from sqlite3 import Error
-from .utils import validate_sql
+from utils import validate_sql
 import logging
 
 class Database:
