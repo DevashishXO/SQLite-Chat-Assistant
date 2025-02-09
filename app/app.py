@@ -1,7 +1,7 @@
 import logging
 import gradio as gr
-from .nlp import NLPToSQL
-from .db import Database
+from nlp import NLPToSQL
+from db import Database
 
 nlp = NLPToSQL()
 db = Database()
