@@ -108,7 +108,6 @@ I experimented with multiple models before settling on the fine-tuned t5-small m
 
 - Enhance dataset for fine-tuning.
 - Implement caching for faster response times.
-- Deploy the model using Hugging Face Spaces or an optimized cloud server.
 
 ## Author
 Devashish Nagpal
